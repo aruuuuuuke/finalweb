@@ -1,6 +1,6 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from final.users.models import CustomUsers
+from users.models import CustomUsers
 
 
 class TeacherGroup(models.Model):
@@ -51,4 +51,3 @@ class TestResult(models.Model):
     user = models.ForeignKey(CustomUsers, on_delete=models.CASCADE)
     test = models.ForeignKey('Test', on_delete=models.CASCADE)
     mark = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
-
